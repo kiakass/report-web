@@ -1,37 +1,37 @@
 <!-- report-view.html -->
-<a href="#report-history" class="back-to-list">← 리포트 목록으로 돌아가기</a>
+<a href="#" class="back-to-list" onclick="goBack()">← 리포트 목록으로 돌아가기</a>
 
-<div class="dashboard-header">
-  <h1 class="dashboard-title">리포트명</h1>
-  <p class="dashboard-subtitle">분석 기간 및 개요</p>
+<div class="header">
+  <h1>하이얼 경쟁사 2024년 하반기 분석 리포트</h1>
+  <p class="subtitle">2024년 7월 ~ 2024년 12월 | 국내 가전시장 경쟁 분석</p>
 </div>
 
 <div class="nav-tabs">
-  <div class="nav-tab active" data-tab="overview">개요</div>
-  <div class="nav-tab" data-tab="demographics">인구통계학적 분석</div>
-  <div class="nav-tab" data-tab="trends">시계열 분석</div>
-  <div class="nav-tab" data-tab="behavior">고객 행동 분석</div>
+  <div class="nav-tab active" onclick="showSection('overview', this)">개요</div>
+  <div class="nav-tab" onclick="showSection('demographics', this)">인구통계학적 분석</div>
+  <div class="nav-tab" onclick="showSection('trends', this)">시계열 분석</div>
+  <div class="nav-tab" onclick="showSection('behavior', this)">고객 행동 분석</div>
 </div>
 
 <div id="overview" class="content-section active">
-  <h2 class="content-title">분석 개요</h2>
+  <h2 class="section-title">분석 개요</h2>
   
   <div class="stats-grid">
-    <div class="stat-item">
-      <span class="stat-number">1,306</span>
-      <span class="stat-label">하이얼 3개월 MAU</span>
+    <div class="stat-card">
+      <div class="stat-number">1,306</div>
+      <div class="stat-label">하이얼 3개월 MAU</div>
     </div>
-    <div class="stat-item">
-      <span class="stat-number">9개사</span>
-      <span class="stat-label">분석 대상 브랜드</span>
+    <div class="stat-card">
+      <div class="stat-number">9개사</div>
+      <div class="stat-label">분석 대상 브랜드</div>
     </div>
-    <div class="stat-item">
-      <span class="stat-number">6개월</span>
-      <span class="stat-label">분석 기간</span>
+    <div class="stat-card">
+      <div class="stat-number">6개월</div>
+      <div class="stat-label">분석 기간</div>
     </div>
-    <div class="stat-item">
-      <span class="stat-number">3개</span>
-      <span class="stat-label">주력 제품 카테고리</span>
+    <div class="stat-card">
+      <div class="stat-number">3개</div>
+      <div class="stat-label">주력 제품 카테고리</div>
     </div>
   </div>
 
@@ -42,11 +42,48 @@
     <div class="insight-item">홈케어서비스 관심지수 최고치(10점) 기록</div>
     <div class="insight-item">2024년 10-11월 상승세를 보이며 계절성 반응 탄력성 확인</div>
   </div>
+
+  <!-- 분석 정보 요약 -->
+  <div class="analysis-info-grid">
+    <div class="info-card">
+      <div class="info-title">분석 목적</div>
+      <div class="info-content">
+        <div class="info-item">하이얼 브랜드의 국내 가전시장 내 경쟁 포지션 분석</div>
+        <div class="info-item">고객 특성 및 행동 패턴 파악을 통한 마케팅 전략 수립</div>
+        <div class="info-item">경쟁사 대비 차별화 포인트 및 개선 방향 도출</div>
+      </div>
+    </div>
+    <div class="info-card">
+      <div class="info-title">분석 기간</div>
+      <div class="info-content">
+        <div class="info-item"><strong>2024년 7월 ~ 2024년 12월</strong></div>
+        <div class="info-item">총 6개월 기간</div>
+        <div class="info-item">월별 시계열 트렌드 분석</div>
+      </div>
+    </div>
+    <div class="info-card">
+      <div class="info-title">분석 대상</div>
+      <div class="info-content">
+        <div class="info-item"><strong>기준 업체:</strong> 하이얼(Haier)</div>
+        <div class="info-item"><strong>경쟁사:</strong> 쿠쿠, LG전자, 하이마트, 샤오미, 캐리어, 삼성전자, 쿠잉, 모데비</div>
+        <div class="info-item">총 9개 브랜드 홈페이지 접속자 기준</div>
+      </div>
+    </div>
+    <div class="info-card">
+      <div class="info-title">분석 항목</div>
+      <div class="info-content">
+        <div class="info-item"><strong>I. 인구통계학적 분석:</strong> 연령, 성별, 지역, 가구세그먼트</div>
+        <div class="info-item"><strong>II. 시계열 분석:</strong> 월별 접속자 수, 점유율 변화</div>
+        <div class="info-item"><strong>III. 사이트 방문 분석:</strong> 주요 방문 사이트, 교차방문 패턴</div>
+      </div>
+    </div>
+  </div>
 </div>
 
 <div id="demographics" class="content-section">
-  <h2 class="content-title">I. 인구통계학적 분석</h2>
+  <h2 class="section-title">I. 인구통계학적 분석</h2>
   
+  <!-- 1. 업체별 총 방문자 수 비교 -->
   <div class="chart-container">
     <div class="chart-title">1. 브랜드별 총 방문자 수 비교 (3개월 MAU)</div>
     <canvas id="visitorsChart"></canvas>
@@ -59,6 +96,7 @@
     <div class="insight-item">시장 지배력은 작지만, 하이얼·쿠잉·모데비등이 틈새 브랜드 경쟁 구도를 형성</div>
   </div>
 
+  <!-- 2. 연령대별 방문자 비율 -->
   <div class="chart-container">
     <div class="chart-title">2. 브랜드별 연령대 분포 (상위 5개 연령대 정규화)</div>
     <canvas id="ageChart"></canvas>
@@ -66,11 +104,13 @@
 
   <div class="insights-box">
     <div class="insights-title">연령대별 특성</div>
-    <div class="insight-item">Haier: 30대와 40대 비율이 상대적으로 높은 편으로, 젊은 중년 소비자층 중심</div>
-    <div class="insight-item">Himart, LGE: 60대 이상 방문자 비중 두드러짐</div>
-    <div class="insight-item">Cuckoo: 40-50대 비중이 강한 브랜드</div>
+    <div class="insight-item"><span class="highlight-text">하이얼</span>: 30대와 40대 비율이 상대적으로 높은 편으로, 젊은 중년 소비자층 중심</div>
+    <div class="insight-item"><span class="highlight-text">Himart, LGE</span>: 60대 이상 방문자 비중 두드러짐</div>
+    <div class="insight-item"><span class="highlight-text">Cuckoo</span>: 40-50대 비중이 강한 브랜드</div>
+    <div class="insight-item">하이얼은 쿠잉과 유사한 연령대 분포를 이루고 있음</div>
   </div>
 
+  <!-- 3. 성별 방문자 비율 -->
   <div class="chart-container">
     <div class="chart-title">3. 브랜드별 성별 분포</div>
     <canvas id="genderChart"></canvas>
@@ -78,14 +118,48 @@
 
   <div class="insights-box">
     <div class="insights-title">성별 분포 특성</div>
-    <div class="insight-item">Haier: 남성 방문자 비율이 높고, Carrier, Cuckoo도 유사한 경향</div>
-    <div class="insight-item">Himart, LGE: 상대적으로 여성 비율이 높아 생활용품/유통 중심 브랜드 특성 반영</div>
+    <div class="insight-item"><span class="highlight-text">Haier</span>: 남성 방문자 비율이 높고, Carrier, Cuckoo도 유사한 경향</div>
+    <div class="insight-item"><span class="highlight-text">Himart, LGE</span>: 상대적으로 여성 비율이 높아 생활용품/유통 중심 브랜드 특성 반영</div>
+    <div class="insight-item">대부분의 브랜드는 성별 균형이 뚜렷하게 나뉘기보다는 약간의 편차를 보이는 수준</div>
+  </div>
+
+  <!-- 4. 지역별 방문자 비율 -->
+  <div class="chart-container">
+    <div class="chart-title">4. 지역별 방문자 비율 (상위 5개 지역)</div>
+    <canvas id="regionChart"></canvas>
+  </div>
+
+  <!-- 5. 고객 특성 관심지수 분석 -->
+  <div class="chart-container">
+    <div class="chart-title">5. 고객특성지수 히트맵 (평균값 기준)</div>
+    <canvas id="customerIndexChart"></canvas>
+  </div>
+
+  <div class="insights-box">
+    <div class="insights-title">고객특성지수 분석</div>
+    <div class="insight-item"><span class="highlight-text">Haier</span>: 홈케어서비스 관심 지수 최고치(10점), 블로그 활동(6.5점)·이사 관심(5.0점) 상위권</div>
+    <div class="insight-item"><span class="highlight-text">Xiaomi</span>: 2ND단말 보유·구매력·공기질 민감·도서·잡지 관심 지수 모두 10점으로 멀티디바이스+가성비+콘텐츠 삼박자</div>
+    <div class="insight-item"><span class="highlight-text">Cooing</span>: 홈케어서비스 관심(10점)과 주방용품 가전 관심(8.5점) 두드러짐</div>
+  </div>
+
+  <!-- 6. 가구세그먼트 분석 -->
+  <div class="chart-container">
+    <div class="chart-title">6. 가구세그먼트별 분석 (FMIL_SGMT)</div>
+    <canvas id="householdChart"></canvas>
+  </div>
+
+  <div class="insights-box">
+    <div class="insights-title">가구세그먼트 특성</div>
+    <div class="insight-item"><span class="highlight-text">하이얼</span>: 1인가구 비중 17.8%로 쿠쿠·LG전자(약 10%) 대비 7-8%p 높아 소형 가전·1인 라이프스타일 특성</div>
+    <div class="insight-item"><span class="highlight-text">중년 1인가구</span>: 5.5%로 확인돼, 싱글 중장년층이 하이얼의 잠재 성장 타깃</div>
+    <div class="insight-item"><span class="highlight-text">중년 자녀동거</span>: 48.5%로 절반 가까이 차지해 가족 단위 수요 역시 핵심 시장</div>
   </div>
 </div>
 
 <div id="trends" class="content-section">
-  <h2 class="content-title">II. 시계열 분석</h2>
+  <h2 class="section-title">II. 시계열 분석</h2>
   
+  <!-- 1. 월별 접속자 수 추이 -->
   <div class="chart-container">
     <div class="chart-title">1. 월별 접속자 수 추이 (2024.07 ~ 2024.12)</div>
     <canvas id="trendsChart"></canvas>
@@ -93,48 +167,360 @@
 
   <div class="insights-box">
     <div class="insights-title">중소형 가전 브랜드 트래픽 변화</div>
-    <div class="insight-item">Haier: 2024년 10-11월에 15% 상승하며 반응 탄력성 확인</div>
-    <div class="insight-item">Cooing: 2024년 하반기 전체적으로 일정 수준 유지</div>
-    <div class="insight-item">Modevi: 2024년 9월 급격한 상승 후 10월부터 급락</div>
+    <div class="insight-item"><span class="highlight-text">Haier</span>: 2024년 10-11월에 15% 상승하며 반응 탄력성 확인. 계절성(난방) 또는 마케팅 반응 가능성</div>
+    <div class="insight-item"><span class="highlight-text">Cooing</span>: 2024년 하반기 전체적으로 일정 수준 유지. 점진적 이탈 우려는 없으나 성장세도 제한적</div>
+    <div class="insight-item"><span class="highlight-text">Modevi</span>: 2024년 9월 급격한 상승 후 10월부터 급락. 단기 캠페인 이슈의 영향 추정</div>
   </div>
 
+  <!-- 2. 월별 접속자 수 점유율 변화 -->
   <div class="chart-container">
     <div class="chart-title">2. 월별 접속자 수 점유율 변화</div>
-    <canvas id="shareChart"></canvas>
+    <canvas id="marketShareChart"></canvas>
   </div>
 
   <div class="insights-box">
     <div class="insights-title">대형 가전 브랜드 트래픽 변화</div>
-    <div class="insight-item">Himart: 2024년 8월 이후 접속자 수 지속 감소하여 12월까지 약 15% 수준 하락</div>
-    <div class="insight-item">LGE: 2024년 8월 대비 10% 증가하여 2024년 12월 120,450건. 완만한 상승 곡선 유지</div>
-    <div class="insight-item">Xiaomi: 2024년 8월 대비 8% 증가. 가성비 중심 트래픽이 유지되는 흐름</div>
+    <div class="insight-item"><span class="highlight-text">Himart</span>: 2024년 8월 이후 접속자 수 지속 감소하여 12월까지 약 15% 수준 하락</div>
+    <div class="insight-item"><span class="highlight-text">LGE</span>: 2024년 8월 대비 10% 증가하여 2024년 12월 120,450건. 완만한 상승 곡선 유지</div>
+    <div class="insight-item"><span class="highlight-text">Xiaomi</span>: 2024년 8월 대비 8% 증가. 가성비 중심 트래픽이 유지되는 흐름</div>
+  </div>
+
+  <div class="analysis-text">
+    계절성 요인(난방기기 등)과 마케팅 반응이 트래픽 변화에 주요한 영향을 미치는 것으로 분석됩니다. 
+    특히 하이얼의 경우 <span class="highlight-text">4분기 마케팅 효과</span>가 뚜렷하게 나타났습니다.
   </div>
 </div>
 
 <div id="behavior" class="content-section">
-  <h2 class="content-title">III. 사이트 방문 분석</h2>
+  <h2 class="section-title">III. 사이트 방문 분석</h2>
   
+  <!-- 1. 사이트 방문 패턴 분석 -->
   <div class="chart-container">
-    <div class="chart-title">1. 브랜드별 주요 방문 사이트 비교 (user_ratio 기준)</div>
+    <div class="chart-title">1. 브랜드별 주요 방문 사이트 히트맵 (user_ratio 기준)</div>
     <canvas id="siteVisitChart"></canvas>
   </div>
 
   <div class="insights-box">
     <div class="insights-title">사이트 방문 패턴 인사이트</div>
-    <div class="insight-item">haier: 쿠팡(0.98)·옥션(0.56)·디시트렌드(0.52)·오늘의집(0.47) 중심</div>
-    <div class="insight-item">cooing: 쿠팡(1.00)·오늘의집(0.60)·옥션(0.59)·Netflix(0.74) 중심</div>
-    <div class="insight-item">xiaomi: 쿠팡(1.00)·Netflix(0.73)·배달의민족(0.69)·윈도우라이브(0.64) 중심</div>
+    <div class="insight-item"><span class="highlight-text">haier</span>: 쿠팡(0.98)·옥션(0.56)·디시트렌드(0.52)·오늘의집(0.47) 중심. 가격 비교+커뮤니티 트렌드 반영 디자인·공간 활용 중시층</div>
+    <div class="insight-item"><span class="highlight-text">cooing</span>: 쿠팡(1.00)·오늘의집(0.60)·옥션(0.59)·Netflix(0.74) 중심. 홈데코·소형가전 동시 탐색 가성비 DIY·인테리어 지향층</div>
+    <div class="insight-item"><span class="highlight-text">xiaomi</span>: 쿠팡(1.00)·Netflix(0.73)·배달의민족(0.69)·윈도우라이브(0.64) 중심. 가성비 직구·멀티 OS 호환 중시 테크 지향층</div>
   </div>
 
+  <!-- 2. 브랜드 간 교차방문 분석 -->
   <div class="chart-container">
-    <div class="chart-title">2. 브랜드 간 교차방문 유입/유출 흐름</div>
-    <canvas id="flowChart"></canvas>
+    <div class="chart-title">2-1. 브랜드별 교차방문율 히트맵 (상위 5개 브랜드)</div>
+    <canvas id="crossVisitChart"></canvas>
   </div>
 
   <div class="insights-box">
     <div class="insights-title">교차방문 패턴</div>
-    <div class="insight-item">Haier → Himart: 11.4% 유출률, Haier → Cuckoo: 12.5% 유출률</div>
-    <div class="insight-item">Xiaomi: 독립적 소비 성향, 교차방문 비율 자체가 상대적으로 낮음</div>
-    <div class="insight-item">Modevi: 다중 브랜드 방문, Carrier(28.5%), LGE(22.1%), Cuckoo(25.0%) 등</div>
+    <div class="insight-item"><span class="highlight-text">Haier → Himart</span>: 11.4% 유출률, <span class="highlight-text">Haier → Cuckoo</span>: 12.5% 유출률</div>
+    <div class="insight-item"><span class="highlight-text">Xiaomi</span>: 독립적 소비 성향, 교차방문 비율 자체가 상대적으로 낮음</div>
+    <div class="insight-item"><span class="highlight-text">Modevi</span>: 다중 브랜드 방문, Carrier(28.5%), LGE(22.1%), Cuckoo(25.0%) 등 가격 비교·스펙 탐색 중심</div>
+  </div>
+
+  <!-- 3. 성별/연령대별 교차방문 흐름 분석 -->
+  <div class="chart-container">
+    <div class="chart-title">2-2. 성별/연령대별 교차방문 유입/유출 흐름 분석</div>
+    <canvas id="flowChart"></canvas>
+  </div>
+
+  <div class="insights-box">
+    <div class="insights-title">30대 성별 교차방문 특성</div>
+    <div class="insight-item"><span class="highlight-text">여성 30대</span>: 유입은 Himart, Carrier 중심 / 유출 거의 없음 → 핵심 타깃층</div>
+    <div class="insight-item"><span class="highlight-text">남성 30대</span>: 유입 다양 / 유출은 Cooing 집중 → 비교 브랜드 경계 필요</div>
+    <div class="insight-item"><span class="highlight-text">여성 50대</span>: LGE, Cuckoo 유입 존재 / 일부 Samsung 유출</div>
+  </div>
+
+  <div class="analysis-text">
+    하이얼 고객들은 주로 <span class="highlight-text">쿠팡(0.98), 옥션(0.56), 디시트렌드(0.52), 오늘의집(0.47)</span>을 
+    중심으로 활동하며, 가격 비교와 커뮤니티 트렌드를 반영한 디자인·공간 활용을 중시하는 특성을 보입니다.
+    브랜드 충성도 관점에서 30대 여성층이 가장 안정적인 고객군으로 분석됩니다.
   </div>
 </div>
+
+<style>
+  /* report_form.html 스타일 적용 */
+  .header {
+    background: white;
+    border-radius: 8px;
+    padding: 30px;
+    margin-bottom: 30px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e9ecef;
+  }
+
+  .header h1 {
+    color: #1a202c;
+    margin-bottom: 10px;
+    font-size: 2.5em;
+    font-weight: 600;
+  }
+
+  .header .subtitle {
+    color: #6c757d;
+    font-size: 1.1em;
+  }
+
+  .nav-tabs {
+    display: flex;
+    background: white;
+    border-radius: 8px;
+    padding: 4px;
+    margin-bottom: 30px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e9ecef;
+  }
+
+  .nav-tab {
+    flex: 1;
+    padding: 15px 20px;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    color: #495057;
+    background: transparent;
+  }
+
+  .nav-tab.active {
+    background: #343a40;
+    color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .nav-tab:hover:not(.active) {
+    background: #f8f9fa;
+    color: #343a40;
+  }
+
+  .content-section {
+    display: none;
+    background: white;
+    border-radius: 8px;
+    padding: 30px;
+    margin-bottom: 30px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e9ecef;
+  }
+
+  .content-section.active {
+    display: block;
+    animation: fadeIn 0.3s ease-in;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .section-title {
+    color: #1a202c;
+    margin-bottom: 25px;
+    font-size: 1.8em;
+    font-weight: 600;
+    border-bottom: 2px solid #343a40;
+    padding-bottom: 10px;
+  }
+
+  .chart-container {
+    background: #fafafa;
+    border-radius: 6px;
+    padding: 25px;
+    margin-bottom: 30px;
+    border: 1px solid #e9ecef;
+  }
+
+  .chart-container canvas {
+    max-width: 100%;
+    max-height: 400px;
+    width: 100% !important;
+    height: auto !important;
+  }
+
+  .chart-title {
+    font-size: 1.2em;
+    color: #495057;
+    margin-bottom: 20px;
+    text-align: left;
+    font-weight: 600;
+  }
+
+  .insights-box {
+    background: #343a40;
+    color: white;
+    padding: 25px;
+    border-radius: 6px;
+    margin: 20px 0 30px;
+    border-left: 4px solid #dc3545;
+  }
+
+  .insights-title {
+    font-size: 1.2em;
+    margin-bottom: 15px;
+    font-weight: 600;
+    color: #f8f9fa;
+  }
+
+  .insight-item {
+    margin-bottom: 12px;
+    padding-left: 15px;
+    position: relative;
+    color: #e9ecef;
+  }
+
+  .insight-item::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: #adb5bd;
+    font-weight: bold;
+  }
+
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 20px;
+    margin: 25px 0;
+  }
+
+  .stat-card {
+    background: white;
+    color: #1a202c;
+    padding: 20px;
+    border-radius: 6px;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e9ecef;
+    transition: transform 0.3s ease;
+  }
+
+  .stat-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+
+  .stat-number {
+    font-size: 2em;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: #343a40;
+  }
+
+  .stat-label {
+    font-size: 0.9em;
+    color: #6c757d;
+    font-weight: 500;
+  }
+
+  .highlight-text {
+    background: #e9ecef;
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-weight: 600;
+    color: #1a202c;
+  }
+
+  .analysis-text {
+    line-height: 1.8;
+    color: #495057;
+    margin: 20px 0;
+    font-size: 1.05em;
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 6px;
+    border-left: 4px solid #6c757d;
+  }
+
+  .analysis-info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-top: 40px;
+  }
+
+  .info-card {
+    background: white;
+    border: 1px solid #dee2e6;
+    border-radius: 6px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease;
+  }
+
+  .info-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .info-title {
+    font-size: 1.1em;
+    font-weight: 600;
+    color: #343a40;
+    margin-bottom: 15px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #dc3545;
+  }
+
+  .info-content {
+    line-height: 1.6;
+  }
+
+  .info-item {
+    margin-bottom: 8px;
+    color: #495057;
+    font-size: 0.95em;
+    padding-left: 15px;
+    position: relative;
+  }
+
+  .info-item::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: #6c757d;
+    font-weight: bold;
+  }
+
+  .info-item strong {
+    color: #343a40;
+  }
+
+  .back-to-list {
+    display: inline-block;
+    background: #343a40;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 0.9em;
+    margin-bottom: 20px;
+    transition: background-color 0.3s ease;
+  }
+
+  .back-to-list:hover {
+    background: #23272b;
+  }
+
+  /* 반응형 디자인 */
+  @media (max-width: 768px) {
+    .header h1 {
+      font-size: 2em;
+    }
+    
+    .nav-tabs {
+      flex-direction: column;
+    }
+    
+    .stats-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .analysis-info-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+

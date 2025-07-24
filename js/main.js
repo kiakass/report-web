@@ -3,6 +3,7 @@ import { loadComponent } from './utils.js';
 import { initNavigation } from './navigation.js';
 import { initForms } from './forms.js';
 import { initHistory } from './history.js';
+import { showReportSection } from './report-charts.js';
 
 // 컴포넌트 로드 함수
 async function loadComponents() {

@@ -480,3 +480,19 @@
   color: #adb5bd;
   font-weight: bold;
 }
+
+/* 차트 컨테이너 스타일 */
+.chart-container {
+  background: #fafafa;
+  border-radius: 6px;
+  padding: 25px;
+  margin-bottom: 30px;
+  border: 1px solid #e9ecef;
+  position: relative;
+  min-height: 400px;
+}
+
+.chart-container canvas {
+  max-width: 100% !important;
+  height: 350px !important;
+}

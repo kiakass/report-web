@@ -1,4 +1,5 @@
 // report-detail.js - 리포트 상세 페이지 관리
+import { initReportView, showReportSection } from './report-charts.js';
 
 // 차트 인스턴스 저장
 let chartInstances = {};
