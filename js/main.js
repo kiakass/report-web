@@ -2,6 +2,7 @@
 import { loadComponent } from './utils.js';
 import { initNavigation } from './navigation.js';
 import { initForms } from './forms.js';
+import { initHistory } from './history.js';
 
 // 컴포넌트 로드 함수
 async function loadComponents() {
@@ -19,6 +20,7 @@ async function loadComponents() {
     // 컴포넌트 로드 후 초기화
     initNavigation();
     initForms();
+    initHistory();
     
   } catch (error) {
     console.error('컴포넌트 로드 중 오류:', error);

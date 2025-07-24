@@ -1,4 +1,5 @@
 // navigation.js - SPA 메뉴/섹션 전환
+import { initHistory } from './history.js';
 
 export function initNavigation() {
   console.log('Navigation 초기화 시작');
@@ -43,6 +44,11 @@ function showSection(sectionId) {
     targetSection.classList.add('active');
     targetSection.style.display = 'block';
     console.log('섹션 표시:', sectionId);
+    
+    // 히스토리 섹션이면 데이터 다시 로드
+    if (sectionId === 'report-history') {
+      initHistory();
+    }
   } else {
     console.error('섹션을 찾을 수 없습니다:', sectionId);
   }
