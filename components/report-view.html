@@ -1,27 +1,140 @@
 <!-- report-view.html -->
+<a href="#report-history" class="back-to-list">← 리포트 목록으로 돌아가기</a>
+
 <div class="dashboard-header">
   <h1 class="dashboard-title">리포트명</h1>
   <p class="dashboard-subtitle">분석 기간 및 개요</p>
 </div>
+
 <div class="nav-tabs">
   <div class="nav-tab active" data-tab="overview">개요</div>
   <div class="nav-tab" data-tab="demographics">인구통계학적 분석</div>
   <div class="nav-tab" data-tab="trends">시계열 분석</div>
   <div class="nav-tab" data-tab="behavior">고객 행동 분석</div>
 </div>
+
 <div id="overview" class="content-section active">
   <h2 class="content-title">분석 개요</h2>
-  <!-- 개요 내용 -->
+  
+  <div class="stats-grid">
+    <div class="stat-item">
+      <span class="stat-number">1,306</span>
+      <span class="stat-label">하이얼 3개월 MAU</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-number">9개사</span>
+      <span class="stat-label">분석 대상 브랜드</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-number">6개월</span>
+      <span class="stat-label">분석 기간</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-number">3개</span>
+      <span class="stat-label">주력 제품 카테고리</span>
+    </div>
+  </div>
+
+  <div class="insights-box">
+    <div class="insights-title">핵심 인사이트</div>
+    <div class="insight-item">하이얼은 30-40대 젊은 중년 소비자층을 중심으로 방문하는 경향</div>
+    <div class="insight-item">1인가구 비중 17.8%로 쿠쿠·LG 대비 7-8%p 높은 수준</div>
+    <div class="insight-item">홈케어서비스 관심지수 최고치(10점) 기록</div>
+    <div class="insight-item">2024년 10-11월 상승세를 보이며 계절성 반응 탄력성 확인</div>
+  </div>
 </div>
+
 <div id="demographics" class="content-section">
   <h2 class="content-title">I. 인구통계학적 분석</h2>
-  <!-- 인구통계 차트/인사이트 -->
+  
+  <div class="chart-container">
+    <div class="chart-title">1. 브랜드별 총 방문자 수 비교 (3개월 MAU)</div>
+    <canvas id="visitorsChart"></canvas>
+  </div>
+
+  <div class="insights-box">
+    <div class="insights-title">방문자 수 분석 인사이트</div>
+    <div class="insight-item">하이얼의 3개월간 방문자 수(MAU)는 1,306명입니다</div>
+    <div class="insight-item">대형 3사(쿠쿠·LG·하이마트)의 MAU가 전체의 대부분을 차지해 브랜드 집중도가 높은 시장 구조</div>
+    <div class="insight-item">시장 지배력은 작지만, 하이얼·쿠잉·모데비등이 틈새 브랜드 경쟁 구도를 형성</div>
+  </div>
+
+  <div class="chart-container">
+    <div class="chart-title">2. 브랜드별 연령대 분포 (상위 5개 연령대 정규화)</div>
+    <canvas id="ageChart"></canvas>
+  </div>
+
+  <div class="insights-box">
+    <div class="insights-title">연령대별 특성</div>
+    <div class="insight-item">Haier: 30대와 40대 비율이 상대적으로 높은 편으로, 젊은 중년 소비자층 중심</div>
+    <div class="insight-item">Himart, LGE: 60대 이상 방문자 비중 두드러짐</div>
+    <div class="insight-item">Cuckoo: 40-50대 비중이 강한 브랜드</div>
+  </div>
+
+  <div class="chart-container">
+    <div class="chart-title">3. 브랜드별 성별 분포</div>
+    <canvas id="genderChart"></canvas>
+  </div>
+
+  <div class="insights-box">
+    <div class="insights-title">성별 분포 특성</div>
+    <div class="insight-item">Haier: 남성 방문자 비율이 높고, Carrier, Cuckoo도 유사한 경향</div>
+    <div class="insight-item">Himart, LGE: 상대적으로 여성 비율이 높아 생활용품/유통 중심 브랜드 특성 반영</div>
+  </div>
 </div>
+
 <div id="trends" class="content-section">
   <h2 class="content-title">II. 시계열 분석</h2>
-  <!-- 트렌드 차트/인사이트 -->
+  
+  <div class="chart-container">
+    <div class="chart-title">1. 월별 접속자 수 추이 (2024.07 ~ 2024.12)</div>
+    <canvas id="trendsChart"></canvas>
+  </div>
+
+  <div class="insights-box">
+    <div class="insights-title">중소형 가전 브랜드 트래픽 변화</div>
+    <div class="insight-item">Haier: 2024년 10-11월에 15% 상승하며 반응 탄력성 확인</div>
+    <div class="insight-item">Cooing: 2024년 하반기 전체적으로 일정 수준 유지</div>
+    <div class="insight-item">Modevi: 2024년 9월 급격한 상승 후 10월부터 급락</div>
+  </div>
+
+  <div class="chart-container">
+    <div class="chart-title">2. 월별 접속자 수 점유율 변화</div>
+    <canvas id="shareChart"></canvas>
+  </div>
+
+  <div class="insights-box">
+    <div class="insights-title">대형 가전 브랜드 트래픽 변화</div>
+    <div class="insight-item">Himart: 2024년 8월 이후 접속자 수 지속 감소하여 12월까지 약 15% 수준 하락</div>
+    <div class="insight-item">LGE: 2024년 8월 대비 10% 증가하여 2024년 12월 120,450건. 완만한 상승 곡선 유지</div>
+    <div class="insight-item">Xiaomi: 2024년 8월 대비 8% 증가. 가성비 중심 트래픽이 유지되는 흐름</div>
+  </div>
 </div>
+
 <div id="behavior" class="content-section">
   <h2 class="content-title">III. 사이트 방문 분석</h2>
-  <!-- 행동 분석 차트/인사이트 -->
-</div> 
+  
+  <div class="chart-container">
+    <div class="chart-title">1. 브랜드별 주요 방문 사이트 비교 (user_ratio 기준)</div>
+    <canvas id="siteVisitChart"></canvas>
+  </div>
+
+  <div class="insights-box">
+    <div class="insights-title">사이트 방문 패턴 인사이트</div>
+    <div class="insight-item">haier: 쿠팡(0.98)·옥션(0.56)·디시트렌드(0.52)·오늘의집(0.47) 중심</div>
+    <div class="insight-item">cooing: 쿠팡(1.00)·오늘의집(0.60)·옥션(0.59)·Netflix(0.74) 중심</div>
+    <div class="insight-item">xiaomi: 쿠팡(1.00)·Netflix(0.73)·배달의민족(0.69)·윈도우라이브(0.64) 중심</div>
+  </div>
+
+  <div class="chart-container">
+    <div class="chart-title">2. 브랜드 간 교차방문 유입/유출 흐름</div>
+    <canvas id="flowChart"></canvas>
+  </div>
+
+  <div class="insights-box">
+    <div class="insights-title">교차방문 패턴</div>
+    <div class="insight-item">Haier → Himart: 11.4% 유출률, Haier → Cuckoo: 12.5% 유출률</div>
+    <div class="insight-item">Xiaomi: 독립적 소비 성향, 교차방문 비율 자체가 상대적으로 낮음</div>
+    <div class="insight-item">Modevi: 다중 브랜드 방문, Carrier(28.5%), LGE(22.1%), Cuckoo(25.0%) 등</div>
+  </div>
+</div>

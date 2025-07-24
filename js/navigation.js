@@ -1,5 +1,6 @@
 // navigation.js - SPA 메뉴/섹션 전환
 import { initHistory } from './history.js';
+import { initReportDetail } from './report-detail.js';
 
 export function initNavigation() {
   console.log('Navigation 초기화 시작');
@@ -17,15 +18,28 @@ export function initNavigation() {
 
   // 해시 변경 시 섹션 전환
   window.addEventListener('hashchange', () => {
-    const section = location.hash.replace('#', '') || 'home';
-    console.log('해시 변경:', section);
-    showSection(section);
+    const hash = location.hash.replace('#', '');
+    console.log('해시 변경:', hash);
+    
+    // view-report/id 형식 처리
+    if (hash.startsWith('view-report/')) {
+      const reportId = hash.split('/')[1];
+      showReportDetail(reportId);
+    } else {
+      const section = hash || 'home';
+      showSection(section);
+    }
   });
 
   // 초기 진입 시 해시 체크
   if (location.hash) {
-    const section = location.hash.replace('#', '');
-    showSection(section);
+    const hash = location.hash.replace('#', '');
+    if (hash.startsWith('view-report/')) {
+      const reportId = hash.split('/')[1];
+      showReportDetail(reportId);
+    } else {
+      showSection(hash);
+    }
   }
 }
 
@@ -63,4 +77,33 @@ function showSection(sectionId) {
   if (location.hash.replace('#', '') !== sectionId) {
     location.hash = sectionId;
   }
+}
+
+// 리포트 상세 표시 함수
+function showReportDetail(reportId) {
+  console.log('리포트 상세 표시:', reportId);
+  
+  // 모든 섹션 숨기기
+  document.querySelectorAll('.main-section').forEach(sec => {
+    sec.classList.remove('active');
+    sec.style.display = 'none';
+  });
+  
+  // 리포트 뷰 섹션 표시
+  const reportSection = document.getElementById('view-report-section');
+  if (reportSection) {
+    reportSection.classList.add('active');
+    reportSection.style.display = 'block';
+    
+    // 리포트 데이터 로드
+    setTimeout(() => {
+      initReportDetail(reportId);
+    }, 100);
+  }
+  
+  // 히스토리 메뉴 활성화 유지
+  document.querySelectorAll('.menu-link').forEach(link => {
+    const linkSection = link.getAttribute('data-section');
+    link.classList.toggle('active', linkSection === 'report-history');
+  });
 }

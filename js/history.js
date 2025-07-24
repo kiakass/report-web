@@ -54,7 +54,17 @@ const sampleHistoryData = [
 
 // 히스토리 초기화
 export function initHistory() {
-  console.log('History 초기화');
+  console.log('History 초기화 시작');
+  
+  // 디버깅 정보
+  const tableBody = document.getElementById('history-table-body');
+  console.log('history-table-body 요소:', tableBody);
+  
+  if (!tableBody) {
+    console.error('history-table-body 요소를 찾을 수 없습니다!');
+    return;
+  }
+  
   loadHistoryData();
 }
 
