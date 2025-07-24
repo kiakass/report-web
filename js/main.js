@@ -1,5 +1,5 @@
 // main.js - 앱 초기화 및 SPA 라우팅
-import { initNavigation } from './js/navigation.js';
+import { initNavigation } from './navigation.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   initNavigation();
