@@ -1,0 +1,50 @@
+<!-- report-form.html -->
+<div class="content-card">
+  <form id="targetReportForm">
+    <div class="form-section">
+      <h3 class="form-section-title">리포트 개요</h3>
+      <div class="form-row">
+        <label class="form-label">리포트명 :</label>
+        <input type="text" class="form-input" id="reportName" name="reportName" placeholder="예: 하이얼 경쟁사 분석 리포트">
+      </div>
+      <div class="form-row">
+        <label class="form-label">활용계획 :</label>
+        <textarea class="form-textarea" id="usagePlan" name="usagePlan" placeholder="예: 영업팀의 월 시장평가 및 마케팅 전략 수립"></textarea>
+      </div>
+    </div>
+    <div class="form-section">
+      <h3 class="form-section-title">분석 설정</h3>
+      <div class="form-row">
+        <label class="form-label">기간 :</label>
+        <input type="date" class="form-input" id="startDate" name="startDate">
+        <span style="color: #6c757d; margin: 0 10px;">~</span>
+        <input type="date" class="form-input" id="endDate" name="endDate">
+      </div>
+      <div class="form-row">
+        <label class="form-label">연령 :</label>
+        <input type="number" class="form-input" id="minAge" name="minAge" value="20" min="0" max="100" style="width: 100px;">
+        <span style="color: #6c757d; margin: 0 10px;">~</span>
+        <input type="number" class="form-input" id="maxAge" name="maxAge" value="50" min="0" max="100" style="width: 100px;">
+      </div>
+      <div class="form-row">
+        <label class="form-label">대상고객 :</label>
+        <select class="form-select" id="targetCustomer" name="targetCustomer">
+          <option value="URL">URL</option>
+          <option value="고객명">고객명</option>
+        </select>
+        <textarea class="form-textarea" id="targetDetail" name="targetDetail" placeholder="www.haier.co.kr 을 검색" style="min-height: 60px;"></textarea>
+        <button type="button" class="form-button">검색하기</button>
+      </div>
+      <div class="form-row">
+        <label class="form-label">비교고객 :</label>
+        <select class="form-select" id="compareCustomer" name="compareCustomer">
+          <option value="URL">URL</option>
+          <option value="고객명">고객명</option>
+        </select>
+        <textarea class="form-textarea" id="compareDetail" name="compareDetail" placeholder="www.cuckoo.co.kr 을 검색" style="min-height: 60px;"></textarea>
+        <button type="button" class="form-button">검색하기</button>
+      </div>
+    </div>
+    <button type="submit" class="generate-report-btn">리포트 생성하기</button>
+  </form>
+</div> 
