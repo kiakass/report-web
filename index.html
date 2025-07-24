@@ -18,14 +18,14 @@
         <div class="features-section">
           <h2 class="section-title">주요 기능</h2>
           <div class="features-grid">
-            <div class="feature-card">
+            <div class="feature-card" data-section="create-report">
               <span class="feature-icon">📝</span>
               <h3 class="feature-title">리포트 생성하기</h3>
               <p class="feature-description">
                 특정 기간과 조건을 설정하여 상세한 타겟 고객 분석 리포트를 생성합니다.
               </p>
             </div>
-            <div class="feature-card">
+            <div class="feature-card" data-section="report-history">
               <span class="feature-icon">📋</span>
               <h3 class="feature-title">분석 히스토리</h3>
               <p class="feature-description">
@@ -93,13 +93,6 @@
       </div>
     </div>
   </div>
-  <script type="module">
-    import { loadComponent } from './js/utils.js';
-    loadComponent('#sidebar', './components/sidebar.html');
-    loadComponent('#header', './components/header.html');
-    loadComponent('#report-form', './components/report-form.html');
-    loadComponent('#report-view', './components/report-view.html');
-  </script>
   <script type="module" src="js/main.js"></script>
 </body>
 </html>

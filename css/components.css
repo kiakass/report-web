@@ -1,5 +1,245 @@
 /* components.css - UI 컴포넌트 스타일 */
 
+/* 사이드바 스타일 추가 */
+.sidebar-header {
+  padding: 20px 0;
+  text-align: center;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.logo-icon {
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #A50034;
+}
+
+.sidebar-menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.menu-item {
+  position: relative;
+}
+
+.menu-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 15px 10px;
+  color: #6c757d;
+  text-decoration: none;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+
+.menu-link:hover {
+  background: #f8f9fa;
+  color: #2c3e50;
+}
+
+.menu-link.active {
+  color: #A50034;
+  background: #f8f9fa;
+}
+
+.menu-link.active::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: #A50034;
+}
+
+.menu-icon {
+  font-size: 1.5em;
+  margin-bottom: 5px;
+}
+
+.menu-text {
+  font-size: 0.75em;
+  font-weight: 500;
+}
+
+/* 헤더 스타일 */
+.main-header {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.main-title {
+  font-size: 2.5em;
+  color: #2c3e50;
+  margin-bottom: 0.3em;
+}
+
+.main-subtitle {
+  font-size: 1.3em;
+  color: #6c757d;
+  margin-bottom: 1em;
+}
+
+.main-description {
+  font-size: 1.1em;
+  color: #495057;
+  line-height: 1.6;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* 기능 카드 스타일 */
+.features-section {
+  margin-bottom: 48px;
+}
+
+.section-title {
+  font-size: 1.8em;
+  color: #2c3e50;
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+.feature-card {
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+  cursor: pointer;
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+}
+
+.feature-icon {
+  font-size: 3em;
+  margin-bottom: 16px;
+  display: block;
+}
+
+.feature-title {
+  font-size: 1.3em;
+  color: #2c3e50;
+  margin-bottom: 12px;
+}
+
+.feature-description {
+  color: #6c757d;
+  line-height: 1.6;
+}
+
+/* 통계 섹션 스타일 */
+.stats-section {
+  background: #f8f9fa;
+  border-radius: 12px;
+  padding: 48px 32px;
+  text-align: center;
+}
+
+.stats-title {
+  font-size: 1.8em;
+  color: #2c3e50;
+  margin-bottom: 32px;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 32px;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.stat-number {
+  font-size: 2.5em;
+  font-weight: bold;
+  color: #A50034;
+  margin-bottom: 8px;
+}
+
+.stat-label {
+  font-size: 1em;
+  color: #6c757d;
+}
+
+/* 페이지 헤더 스타일 */
+.page-header {
+  margin-bottom: 32px;
+}
+
+.page-title {
+  font-size: 2em;
+  color: #2c3e50;
+  margin-bottom: 0.3em;
+}
+
+.page-subtitle {
+  font-size: 1.1em;
+  color: #6c757d;
+}
+
+/* 폼 스타일 */
+.form-section {
+  margin-bottom: 32px;
+}
+
+.form-section-title {
+  font-size: 1.3em;
+  color: #2c3e50;
+  margin-bottom: 20px;
+}
+
+.form-row {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 20px;
+  gap: 12px;
+}
+
+.form-label {
+  min-width: 100px;
+  font-weight: 500;
+  color: #495057;
+  margin-top: 8px;
+}
+
+.form-input,
+.form-select,
+.form-textarea {
+  flex: 1;
+  padding: 8px 12px;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  font-size: 1em;
+  transition: border-color 0.3s;
+}
+
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus {
+  outline: none;
+  border-color: #A50034;
+}
+
+.form-textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.generate-report-btn {
+  width: 100%;
+  padding: 14px 20px;
+  font-size: 1.1em;
+  margin-top: 24px;
+}
+
+/* 버튼 스타일 */
 .button, .form-button, .generate-report-btn {
   background: #A50034;
   color: #fff;
@@ -22,4 +262,4 @@
   border: 1px solid #e9ecef;
   padding: 32px 24px;
   margin-bottom: 24px;
-} 
+}
