@@ -29,6 +29,8 @@ function showSection(sectionId) {
   document.querySelectorAll('.menu-link').forEach(link => {
     link.classList.toggle('active', link.getAttribute('data-section') === sectionId);
   });
-  // 해시 갱신
-  location.hash = sectionId;
+  // 해시 갱신 (중복 방지)
+  if (location.hash.replace('#', '') !== sectionId) {
+    location.hash = sectionId;
+  }
 } 
