@@ -47,4 +47,8 @@ document.addEventListener('DOMContentLoaded', () => {
   
   // 컴포넌트 로드
   loadComponents();
+  
+  // 전역 함수 등록
+  window.goBack = () => location.hash = 'report-history';
+  window.showSection = showReportSection;
 });

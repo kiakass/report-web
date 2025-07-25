@@ -45,9 +45,12 @@ export function initReportDetail(reportId) {
   // 탭 이벤트 바인딩
   bindTabEvents();
   
+  // 리포트 뷰 초기화
+  initReportView();
+  
   // 차트 초기화 (첫 번째 탭)
   setTimeout(() => {
-    initCharts('overview');
+    showReportSection('overview', document.querySelector('.nav-tab.active'));
   }, 100);
 }
 

@@ -1,6 +1,7 @@
 // navigation.js - SPA 메뉴/섹션 전환
 import { initHistory } from './history.js';
 import { initReportDetail } from './report-detail.js';
+import { initReportView } from './report-charts.js';
 
 export function initNavigation() {
   console.log('Navigation 초기화 시작');
@@ -98,6 +99,8 @@ function showReportDetail(reportId) {
     // 리포트 데이터 로드
     setTimeout(() => {
       initReportDetail(reportId);
+      // 리포트 뷰 초기화 추가
+      initReportView();
     }, 100);
   }
   
