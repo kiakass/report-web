@@ -62,7 +62,7 @@
           <label class="form-label"></label>
           <div class="form-field">
             <div class="company-list" id="targetCompanyList">
-              <div class="empty-list">하이얼 : www.haier</div>
+              <div class="empty-list">등록된 대상기업이 없습니다.</div>
             </div>
           </div>
         </div>
@@ -79,7 +79,7 @@
           <label class="form-label"></label>
           <div class="form-field">
             <div class="company-list" id="compareCompanyList">
-              <div class="empty-list">쿠쿠 : www.kuku.com</div>
+              <div class="empty-list">등록된 비교기업이 없습니다.</div>
             </div>
           </div>
         </div>
@@ -105,7 +105,7 @@
       <div class="form-content">
         <div class="analysis-grid">
           <div class="analysis-row">
-            <input type="checkbox" class="form-checkbox" id="demographics" name="analysisItems" value="demographics">
+            <input type="checkbox" class="form-checkbox" id="demographics" name="analysisItems" value="demographics" checked>
             <label for="demographics" class="checkbox-label">인구통계학적분석</label>
             <input type="text" class="form-input file-name" id="demographics-file" placeholder="000_base.csv" readonly>
             <label for="demographics-upload" class="btn-search">
@@ -155,7 +155,7 @@
 
 <style>
 /* 전체 컨테이너 */
-.report-container {
+#create-report-section .report-container {
   max-width: 900px;
   margin: 0 auto;
   padding: 20px;
@@ -163,7 +163,7 @@
   min-height: 100vh;
 }
 
-.page-title {
+#create-report-section .page-title {
   font-size: 24px;
   font-weight: bold;
   margin-bottom: 30px;
@@ -171,7 +171,7 @@
 }
 
 /* 섹션 카드 */
-.section-card {
+#create-report-section .section-card {
   background: white;
   border-radius: 8px;
   margin-bottom: 20px;
@@ -179,7 +179,7 @@
   overflow: hidden;
 }
 
-.section-title {
+#create-report-section .section-title {
   display: flex;
   align-items: center;
   gap: 10px;
@@ -192,25 +192,25 @@
   border-bottom: 1px solid #e9ecef;
 }
 
-.title-bar {
+#create-report-section .title-bar {
   width: 4px;
   height: 20px;
   background: #0066cc;
   border-radius: 2px;
 }
 
-.form-content {
+#create-report-section .form-content {
   padding: 20px;
 }
 
 /* 폼 그룹 */
-.form-group {
+#create-report-section .form-group {
   display: flex;
   margin-bottom: 20px;
   align-items: flex-start;
 }
 
-.form-label {
+#create-report-section .form-label {
   width: 120px;
   padding-top: 8px;
   font-size: 14px;
@@ -220,12 +220,12 @@
   flex-shrink: 0;
 }
 
-.form-field {
+#create-report-section .form-field {
   flex: 1;
 }
 
 /* 입력 필드 */
-.form-input {
+#create-report-section .form-input {
   width: 100%;
   padding: 8px 12px;
   border: 1px solid #ddd;
@@ -234,12 +234,12 @@
   transition: border-color 0.3s;
 }
 
-.form-input:focus {
+#create-report-section .form-input:focus {
   outline: none;
   border-color: #4CAF50;
 }
 
-.form-textarea {
+#create-report-section .form-textarea {
   width: 100%;
   min-height: 80px;
   padding: 8px 12px;
@@ -250,35 +250,38 @@
 }
 
 /* 날짜 및 연령 입력 */
-.date-range, .age-range {
+#create-report-section .date-range, 
+#create-report-section .age-range {
   display: flex;
   align-items: center;
   gap: 10px;
 }
 
-.date-input {
+#create-report-section .date-input {
   width: 140px;
 }
 
-.age-input {
+#create-report-section .age-input {
   width: 80px;
 }
 
-.date-separator, .age-separator {
+#create-report-section .date-separator, 
+#create-report-section .age-separator {
   color: #999;
 }
 
 /* 기업 입력 */
-.company-field {
+#create-report-section .company-field {
   display: flex;
   gap: 10px;
 }
 
-.company-name, .company-url {
+#create-report-section .company-name, 
+#create-report-section .company-url {
   flex: 1;
 }
 
-.btn-input {
+#create-report-section .btn-input {
   padding: 8px 24px;
   background: #6c757d;
   color: white;
@@ -289,12 +292,12 @@
   white-space: nowrap;
 }
 
-.btn-input:hover {
+#create-report-section .btn-input:hover {
   background: #5a6268;
 }
 
 /* 기업 리스트 */
-.company-list {
+#create-report-section .company-list {
   background: #f8f9fa;
   border: 1px solid #dee2e6;
   border-radius: 4px;
@@ -302,12 +305,12 @@
   padding: 12px;
 }
 
-.empty-list {
+#create-report-section .empty-list {
   color: #6c757d;
   font-size: 14px;
 }
 
-.company-item {
+#create-report-section .company-item {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -315,7 +318,7 @@
   font-size: 14px;
 }
 
-.delete-button {
+#create-report-section .delete-button {
   color: #dc3545;
   background: none;
   border: none;
@@ -324,13 +327,13 @@
   padding: 4px 12px;
 }
 
-.delete-button:hover {
+#create-report-section .delete-button:hover {
   background: #ffe5e5;
   border-radius: 3px;
 }
 
 /* 추가 기업정보 */
-.additional-info-box {
+#create-report-section .additional-info-box {
   background: #f8f0ff;
   border: 1px solid #e0d0ff;
   border-radius: 4px;
@@ -338,13 +341,13 @@
   position: relative;
 }
 
-.info-dots {
+#create-report-section .info-dots {
   color: #9b7fb8;
   font-size: 14px;
   margin-bottom: 10px;
 }
 
-.additional-info-textarea {
+#create-report-section .additional-info-textarea {
   width: 100%;
   min-height: 100px;
   background: transparent;
@@ -356,36 +359,36 @@
 }
 
 /* 분석항목 그리드 */
-.analysis-grid {
+#create-report-section .analysis-grid {
   display: flex;
   flex-direction: column;
   gap: 15px;
 }
 
-.analysis-row {
+#create-report-section .analysis-row {
   display: flex;
   align-items: center;
   gap: 15px;
 }
 
-.form-checkbox {
+#create-report-section .form-checkbox {
   width: 18px;
   height: 18px;
   cursor: pointer;
 }
 
-.checkbox-label {
+#create-report-section .checkbox-label {
   width: 140px;
   font-size: 14px;
   cursor: pointer;
 }
 
-.file-name {
+#create-report-section .file-name {
   flex: 1;
   background: #f8f9fa;
 }
 
-.btn-search {
+#create-report-section .btn-search {
   padding: 8px 24px;
   background: #6c757d;
   color: white;
@@ -395,18 +398,18 @@
   display: inline-block;
 }
 
-.btn-search:hover {
+#create-report-section .btn-search:hover {
   background: #5a6268;
 }
 
 /* 제출 버튼 */
-.submit-container {
+#create-report-section .submit-container {
   display: flex;
   justify-content: flex-end;
   margin-top: 30px;
 }
 
-.btn-submit {
+#create-report-section .btn-submit {
   padding: 12px 40px;
   background: #6c757d;
   color: white;
@@ -416,7 +419,7 @@
   cursor: pointer;
 }
 
-.btn-submit:hover {
+#create-report-section .btn-submit:hover {
   background: #5a6268;
 }
 </style>
