@@ -9,12 +9,12 @@ import { initReportForm } from './report-form.js';
 // 컴포넌트 로드 함수
 async function loadComponents() {
   try {
-    // 모든 컴포넌트를 동시에 로드
+    // 상대 경로 수정 (../components/)
     await Promise.all([
-      loadComponent('#sidebar', './components/sidebar.html'),
-      loadComponent('#header', './components/header.html'),
-      loadComponent('#report-form', './components/report-form.html'),
-      loadComponent('#report-view', './components/report-view.html')
+      loadComponent('#sidebar', '../components/sidebar.html'),
+      loadComponent('#header', '../components/header.html'),
+      loadComponent('#report-form', '../components/report-form.html'),
+      loadComponent('#report-view', '../components/report-view.html')
     ]);
     
     console.log('모든 컴포넌트 로드 완료');
