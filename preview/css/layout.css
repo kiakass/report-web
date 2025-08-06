@@ -1,0 +1,42 @@
+/* layout.css - 레이아웃 스타일 */
+
+.sidebar {
+  width: 60px;
+  background: #fff;
+  min-height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+  border-right: 1px solid #e9ecef;
+  box-shadow: 2px 0 4px rgba(0,0,0,0.05);
+  z-index: 1000;
+}
+
+.main-content {
+  margin-left: 60px;
+  flex: 1;
+  min-height: 100vh;
+  padding: 0;
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 24px;
+  width: 100%;
+}
+
+/* 섹션 기본 스타일 */
+.main-section {
+  display: none;
+}
+
+.main-section.active {
+  display: block;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+}
