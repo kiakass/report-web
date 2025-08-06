@@ -4,6 +4,7 @@ import { initNavigation } from './navigation.js';
 import { initForms } from './forms.js';
 import { initHistory } from './history.js';
 import { showReportSection } from './report-charts.js';
+import { initReportForm } from './report-form.js';
 
 // 컴포넌트 로드 함수
 async function loadComponents() {
@@ -22,6 +23,11 @@ async function loadComponents() {
     initNavigation();
     initForms();
     initHistory();
+    
+    // 리포트 폼 초기화 추가
+    setTimeout(() => {
+      initReportForm();
+    }, 100);
     
   } catch (error) {
     console.error('컴포넌트 로드 중 오류:', error);
