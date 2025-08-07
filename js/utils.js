@@ -5,5 +5,9 @@ export function loadComponent(selector, path) {
     .then(res => res.text())
     .then(html => {
       document.querySelector(selector).innerHTML = html;
+    })
+    .catch(error => {
+      console.error(`Component loading error for ${path}:`, error);
+      throw error;
     });
-} 
+}

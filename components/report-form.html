@@ -1,50 +1,398 @@
 <!-- report-form.html -->
-<div class="content-card">
+<div class="report-container">
+  <h1 class="page-title">타겟리포트 생성</h1>
+  
   <form id="targetReportForm">
-    <div class="form-section">
-      <h3 class="form-section-title">리포트 개요</h3>
-      <div class="form-row">
-        <label class="form-label">리포트명 :</label>
-        <input type="text" class="form-input" id="reportName" name="reportName" placeholder="예: 하이얼 경쟁사 분석 리포트">
-      </div>
-      <div class="form-row">
-        <label class="form-label">활용계획 :</label>
-        <textarea class="form-textarea" id="usagePlan" name="usagePlan" placeholder="예: 영업팀의 월 시장평가 및 마케팅 전략 수립"></textarea>
-      </div>
-    </div>
-    <div class="form-section">
-      <h3 class="form-section-title">분석 설정</h3>
-      <div class="form-row">
-        <label class="form-label">기간 :</label>
-        <input type="date" class="form-input" id="startDate" name="startDate">
-        <span style="color: #6c757d; margin: 0 10px;">~</span>
-        <input type="date" class="form-input" id="endDate" name="endDate">
-      </div>
-      <div class="form-row">
-        <label class="form-label">연령 :</label>
-        <input type="number" class="form-input" id="minAge" name="minAge" value="20" min="0" max="100" style="width: 100px;">
-        <span style="color: #6c757d; margin: 0 10px;">~</span>
-        <input type="number" class="form-input" id="maxAge" name="maxAge" value="50" min="0" max="100" style="width: 100px;">
-      </div>
-      <div class="form-row">
-        <label class="form-label">대상고객 :</label>
-        <select class="form-select" id="targetCustomer" name="targetCustomer">
-          <option value="URL">URL</option>
-          <option value="고객명">고객명</option>
-        </select>
-        <textarea class="form-textarea" id="targetDetail" name="targetDetail" placeholder="www.haier.co.kr 을 검색" style="min-height: 60px;"></textarea>
-        <button type="button" class="form-button">검색하기</button>
-      </div>
-      <div class="form-row">
-        <label class="form-label">비교고객 :</label>
-        <select class="form-select" id="compareCustomer" name="compareCustomer">
-          <option value="URL">URL</option>
-          <option value="고객명">고객명</option>
-        </select>
-        <textarea class="form-textarea" id="compareDetail" name="compareDetail" placeholder="www.cuckoo.co.kr 을 검색" style="min-height: 60px;"></textarea>
-        <button type="button" class="form-button">검색하기</button>
+    <!-- 리포트 개요 -->
+    <div class="section-card">
+      <h2 class="section-title">
+        <span class="title-bar"></span>
+        리포트 개요
+      </h2>
+      <div class="form-content">
+        <div class="form-group">
+          <label class="form-label">리포트명 :</label>
+          <div class="form-field">
+            <input type="text" class="form-input" id="reportName" name="reportName" placeholder="예: 기업 분석 리포트">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">활용계획 :</label>
+          <div class="form-field">
+            <textarea class="form-textarea" id="usagePlan" name="usagePlan" placeholder="예: 영업활동 및 사내계획"></textarea>
+          </div>
+        </div>
       </div>
     </div>
-    <button type="submit" class="generate-report-btn">리포트 생성하기</button>
+
+    <!-- 분석설정 -->
+    <div class="section-card">
+      <h2 class="section-title">
+        <span class="title-bar"></span>
+        분석설정
+      </h2>
+      <div class="form-content">
+        <div class="form-group">
+          <label class="form-label">기간 :</label>
+          <div class="form-field date-range">
+            <input type="date" class="form-input date-input" id="startDate" name="startDate">
+            <span class="date-separator">~</span>
+            <input type="date" class="form-input date-input" id="endDate" name="endDate">
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label class="form-label">연령 :</label>
+          <div class="form-field age-range">
+            <input type="number" class="form-input age-input" id="minAge" name="minAge" value="20" min="20" max="70">
+            <span class="age-separator">~</span>
+            <input type="number" class="form-input age-input" id="maxAge" name="maxAge" value="50" min="20" max="70">
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label class="form-label">대상기업 :</label>
+          <div class="form-field company-field">
+            <input type="text" class="form-input company-name" id="targetCompanyName" placeholder="기업명입력">
+            <input type="text" class="form-input company-url" id="targetCompanyUrl" placeholder="URL 입력">
+            <button type="button" class="btn-input" onclick="addTargetCompany()">입력</button>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label"></label>
+          <div class="form-field">
+            <div class="company-list" id="targetCompanyList">
+              <div class="empty-list">등록된 대상기업이 없습니다.</div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label class="form-label">비교기업 :</label>
+          <div class="form-field company-field">
+            <input type="text" class="form-input company-name" id="compareCompanyName" placeholder="기업명입력">
+            <input type="text" class="form-input company-url" id="compareCompanyUrl" placeholder="URL 입력">
+            <button type="button" class="btn-input" onclick="addCompareCompany()">입력</button>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label"></label>
+          <div class="form-field">
+            <div class="company-list" id="compareCompanyList">
+              <div class="empty-list">등록된 비교기업이 없습니다.</div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label class="form-label">추가<br>기업정보 :</label>
+          <div class="form-field">
+            <textarea class="form-textarea" id="additionalInfo" name="additionalInfo" placeholder="추가 기업정보를 입력하세요"></textarea>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 분석항목 선택 / 데이터파일 업로드 -->
+    <div class="section-card">
+      <h2 class="section-title">
+        <span class="title-bar"></span>
+        분석항목 선택 / 데이터파일 업로드
+      </h2>
+      <div class="form-content">
+        <div class="analysis-grid">
+          <div class="analysis-row">
+            <input type="checkbox" class="form-checkbox" id="demographics" name="analysisItems" value="demographics" checked>
+            <label for="demographics" class="checkbox-label">인구통계학적분석</label>
+            <input type="text" class="form-input file-name" id="demographics-file" placeholder="000_base.csv" readonly>
+            <label for="demographics-upload" class="btn-search">
+              검색
+              <input type="file" id="demographics-upload" accept=".csv,.xlsx" onchange="handleFileUpload('demographics', this)" style="display: none;">
+            </label>
+          </div>
+          
+          <div class="analysis-row">
+            <input type="checkbox" class="form-checkbox" id="timeSeries" name="analysisItems" value="timeSeries">
+            <label for="timeSeries" class="checkbox-label">시계열분석</label>
+            <input type="text" class="form-input file-name" id="timeSeries-file" placeholder="000_year.csv" readonly>
+            <label for="timeSeries-upload" class="btn-search">
+              검색
+              <input type="file" id="timeSeries-upload" accept=".csv,.xlsx" onchange="handleFileUpload('timeSeries', this)" style="display: none;">
+            </label>
+          </div>
+          
+          <div class="analysis-row">
+            <input type="checkbox" class="form-checkbox" id="visitedSites" name="analysisItems" value="visitedSites">
+            <label for="visitedSites" class="checkbox-label">주요방문사이트</label>
+            <input type="text" class="form-input file-name" id="visitedSites-file" placeholder="000_site.csv" readonly>
+            <label for="visitedSites-upload" class="btn-search">
+              검색
+              <input type="file" id="visitedSites-upload" accept=".csv,.xlsx" onchange="handleFileUpload('visitedSites', this)" style="display: none;">
+            </label>
+          </div>
+          
+          <div class="analysis-row">
+            <input type="checkbox" class="form-checkbox" id="crossVisit" name="analysisItems" value="crossVisit">
+            <label for="crossVisit" class="checkbox-label">교차방문율</label>
+            <input type="text" class="form-input file-name" id="crossVisit-file" placeholder="000_crossvisit.csv" readonly>
+            <label for="crossVisit-upload" class="btn-search">
+              검색
+              <input type="file" id="crossVisit-upload" accept=".csv,.xlsx" onchange="handleFileUpload('crossVisit', this)" style="display: none;">
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="submit-container">
+      <button type="submit" class="btn-submit">리포트 만들기</button>
+    </div>
   </form>
-</div> 
+</div>
+
+<style>
+/* 전체 컨테이너 */
+#create-report-section .report-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+  background: #f5f5f5;
+  min-height: 100vh;
+}
+
+#create-report-section .page-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 30px;
+  color: #333;
+}
+
+/* 섹션 카드 */
+#create-report-section .section-card {
+  background: white;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  overflow: hidden;
+}
+
+#create-report-section .section-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+  background: #f8f9fa;
+  padding: 15px 20px;
+  margin: 0;
+  border-bottom: 1px solid #e9ecef;
+}
+
+#create-report-section .title-bar {
+  width: 4px;
+  height: 20px;
+  background: #0066cc;
+  border-radius: 2px;
+}
+
+#create-report-section .form-content {
+  padding: 20px;
+}
+
+/* 폼 그룹 */
+#create-report-section .form-group {
+  display: flex;
+  margin-bottom: 20px;
+  align-items: flex-start;
+}
+
+#create-report-section .form-label {
+  width: 120px;
+  padding-top: 8px;
+  font-size: 14px;
+  color: #555;
+  text-align: right;
+  padding-right: 15px;
+  flex-shrink: 0;
+}
+
+#create-report-section .form-field {
+  flex: 1;
+}
+
+/* 입력 필드 */
+#create-report-section .form-input {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+  transition: border-color 0.3s;
+}
+
+#create-report-section .form-input:focus {
+  outline: none;
+  border-color: #4CAF50;
+}
+
+#create-report-section .form-textarea {
+  width: 100%;
+  min-height: 80px;
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+  resize: vertical;
+}
+
+/* 날짜 및 연령 입력 */
+#create-report-section .date-range, 
+#create-report-section .age-range {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+#create-report-section .date-input {
+  width: 140px;
+}
+
+#create-report-section .age-input {
+  width: 80px;
+}
+
+#create-report-section .date-separator, 
+#create-report-section .age-separator {
+  color: #999;
+}
+
+/* 기업 입력 */
+#create-report-section .company-field {
+  display: flex;
+  gap: 10px;
+}
+
+#create-report-section .company-name, 
+#create-report-section .company-url {
+  flex: 1;
+}
+
+#create-report-section .btn-input {
+  padding: 8px 24px;
+  background: #6c757d;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+#create-report-section .btn-input:hover {
+  background: #5a6268;
+}
+
+/* 기업 리스트 */
+#create-report-section .company-list {
+  background: #f8f9fa;
+  border: 1px solid #dee2e6;
+  border-radius: 4px;
+  min-height: 100px;
+  padding: 12px;
+}
+
+#create-report-section .empty-list {
+  color: #6c757d;
+  font-size: 14px;
+}
+
+#create-report-section .company-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  font-size: 14px;
+}
+
+#create-report-section .delete-button {
+  color: #dc3545;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  padding: 4px 12px;
+}
+
+#create-report-section .delete-button:hover {
+  background: #ffe5e5;
+  border-radius: 3px;
+}
+
+/* 추가 기업정보 - 삭제됨 */
+
+/* 분석항목 그리드 */
+#create-report-section .analysis-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+#create-report-section .analysis-row {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+#create-report-section .form-checkbox {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+}
+
+#create-report-section .checkbox-label {
+  width: 140px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+#create-report-section .file-name {
+  flex: 1;
+  background: #f8f9fa;
+}
+
+#create-report-section .btn-search {
+  padding: 8px 24px;
+  background: #6c757d;
+  color: white;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+  display: inline-block;
+}
+
+#create-report-section .btn-search:hover {
+  background: #5a6268;
+}
+
+/* 제출 버튼 */
+#create-report-section .submit-container {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 30px;
+}
+
+#create-report-section .btn-submit {
+  padding: 12px 40px;
+  background: #6c757d;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+#create-report-section .btn-submit:hover {
+  background: #5a6268;
+}
+</style>

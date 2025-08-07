@@ -496,3 +496,274 @@
   max-width: 100% !important;
   height: 350px !important;
 }
+
+/* components.css에 추가할 리포트 폼 관련 스타일 */
+
+/* 리포트 컨테이너 스타일 */
+.report-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+  background: #f5f5f5;
+  min-height: 100vh;
+}
+
+.report-container .page-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 30px;
+  color: #333;
+}
+
+/* 섹션 카드 스타일 */
+.report-container .section-card {
+  background: white;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  overflow: hidden;
+}
+
+.report-container .section-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+  background: #f8f9fa;
+  padding: 15px 20px;
+  margin: 0;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.report-container .title-bar {
+  width: 4px;
+  height: 20px;
+  background: #0066cc;
+  border-radius: 2px;
+}
+
+.report-container .form-content {
+  padding: 20px;
+}
+
+/* 폼 그룹 스타일 */
+.report-container .form-group {
+  display: flex;
+  margin-bottom: 20px;
+  align-items: flex-start;
+}
+
+.report-container .form-label {
+  width: 120px;
+  padding-top: 8px;
+  font-size: 14px;
+  color: #555;
+  text-align: right;
+  padding-right: 15px;
+  flex-shrink: 0;
+}
+
+.report-container .form-field {
+  flex: 1;
+}
+
+/* 입력 필드 스타일 */
+.report-container .form-input {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+  transition: border-color 0.3s;
+}
+
+.report-container .form-input:focus {
+  outline: none;
+  border-color: #4CAF50;
+}
+
+.report-container .form-textarea {
+  width: 100%;
+  min-height: 80px;
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+  resize: vertical;
+}
+
+/* 날짜 및 연령 입력 */
+.report-container .date-range, 
+.report-container .age-range {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.report-container .date-input {
+  width: 140px;
+}
+
+.report-container .age-input {
+  width: 80px;
+}
+
+.report-container .date-separator, 
+.report-container .age-separator {
+  color: #999;
+}
+
+/* 기업 입력 스타일 */
+.report-container .company-field {
+  display: flex;
+  gap: 10px;
+}
+
+.report-container .company-name, 
+.report-container .company-url {
+  flex: 1;
+}
+
+.report-container .btn-input {
+  padding: 8px 24px;
+  background: #6c757d;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.report-container .btn-input:hover {
+  background: #5a6268;
+}
+
+/* 기업 리스트 스타일 */
+.report-container .company-list {
+  background: #f8f9fa;
+  border: 1px solid #dee2e6;
+  border-radius: 4px;
+  min-height: 100px;
+  padding: 12px;
+}
+
+.report-container .empty-list {
+  color: #6c757d;
+  font-size: 14px;
+}
+
+.report-container .company-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  font-size: 14px;
+}
+
+.report-container .delete-button {
+  color: #dc3545;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  padding: 4px 12px;
+}
+
+.report-container .delete-button:hover {
+  background: #ffe5e5;
+  border-radius: 3px;
+}
+
+/* 추가 기업정보 스타일 */
+.report-container .additional-info-box {
+  background: #f8f0ff;
+  border: 1px solid #e0d0ff;
+  border-radius: 4px;
+  padding: 15px;
+  position: relative;
+}
+
+.report-container .info-dots {
+  color: #9b7fb8;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.report-container .additional-info-textarea {
+  width: 100%;
+  min-height: 100px;
+  background: transparent;
+  border: none;
+  font-size: 14px;
+  line-height: 1.8;
+  resize: vertical;
+  outline: none;
+}
+
+/* 분석항목 스타일 */
+.report-container .analysis-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.report-container .analysis-row {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.report-container .form-checkbox {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+}
+
+.report-container .checkbox-label {
+  width: 140px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.report-container .file-name {
+  flex: 1;
+  background: #f8f9fa;
+}
+
+.report-container .btn-search {
+  padding: 8px 24px;
+  background: #6c757d;
+  color: white;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.report-container .btn-search:hover {
+  background: #5a6268;
+}
+
+/* 제출 버튼 스타일 */
+.report-container .submit-container {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 30px;
+}
+
+.report-container .btn-submit {
+  padding: 12px 40px;
+  background: #6c757d;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.report-container .btn-submit:hover {
+  background: #5a6268;
+}
