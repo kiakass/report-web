@@ -1,0 +1,23 @@
+# Python
+__pycache__/
+*.pyc
+venv/
+
+# Node
+node_modules/
+dist/
+
+# 환경파일
+.env*
+*.log
+
+# 분석 결과 및 데이터
+dev/data/
+dev/report_result/
+prod/data/
+prod/report_result/
+docs/
+
+# IDE
+.vscode/
+.DS_Store
