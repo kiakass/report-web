@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>기업고객 경쟁사리포트</title>
+  <link rel="stylesheet" href="./css/main.css">
+  <link rel="stylesheet" href="./css/layout.css">
+  <link rel="stylesheet" href="./css/components.css">
+  <link rel="stylesheet" href="./css/responsive.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div id="sidebar"></div>
+  <div class="main-content">
+    <div id="home-section" class="main-section active">
+      <div class="container">
+        <div id="header"></div>
+        <div class="features-section">
+          <h2 class="section-title">주요 기능</h2>
+          <div class="features-grid">
+            <div class="feature-card" data-section="create-report">
+              <span class="feature-icon">📝</span>
+              <h3 class="feature-title">리포트 생성하기</h3>
+              <p class="feature-description">
+                특정 기간과 조건을 설정하여 상세한 타겟 고객 분석 리포트를 생성합니다.
+              </p>
+            </div>
+            <div class="feature-card" data-section="report-history">
+              <span class="feature-icon">📋</span>
+              <h3 class="feature-title">분석 히스토리</h3>
+              <p class="feature-description">
+                과거 생성된 모든 분석 리포트를 체계적으로 관리하고 비교 분석합니다
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="stats-section">
+          <h2 class="stats-title">서비스 현황</h2>
+          <div class="stats-grid">
+            <div class="stat-item">
+              <span class="stat-number">4,048</span>
+              <span class="stat-label">총 생성 리포트</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number">250+</span>
+              <span class="stat-label">활성 기업 고객</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number">15M+</span>
+              <span class="stat-label">분석 데이터 포인트</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number">99.9%</span>
+              <span class="stat-label">시스템 가동률</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="create-report-section" class="main-section">
+      <div id="report-form"></div>
+    </div>
+    <div id="report-history-section" class="main-section">
+      <div class="container">
+        <div class="page-header">
+          <h1 class="page-title">타겟리포트 히스토리</h1>
+          <p class="page-subtitle">생성된 분석 리포트 목록을 확인하고 조회할 수 있습니다</p>
+        </div>
+        <div class="history-table-container">
+          <table class="history-table">
+            <thead>
+              <tr>
+                <th>번호</th>
+                <th>리포트명</th>
+                <th>대상고객</th>
+                <th>분석기간</th>
+                <th>생성일</th>
+                <th>상태</th>
+                <th>조회</th>
+              </tr>
+            </thead>
+            <tbody id="history-table-body">
+              <!-- 동적으로 생성될 내용 -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div id="settings-section" class="main-section">
+      <div class="container">
+        <div class="page-header">
+          <h1 class="page-title">설정</h1>
+          <p class="page-subtitle">시스템 설정 및 사용자 관리</p>
+        </div>
+        <div class="content-card">
+          <p style="text-align: center; color: #6c757d; font-size: 1.1em; padding: 60px 0;">
+            설정 옵션이 이곳에 표시됩니다.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div id="view-report-section" class="main-section">
+      <div class="container">
+        <div id="report-view"></div>
+      </div>
+    </div>
+  </div>
+  <script type="module" src="./js/main.js"></script>
+</body>
+</html>

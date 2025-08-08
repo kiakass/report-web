@@ -1,0 +1,42 @@
+{
+  "name": "report-web",
+  "version": "1.0.0",
+  "description": "기업고객 경쟁사리포트 웹 애플리케이션",
+  "main": "index.js",
+  "scripts": {
+    "dev": "live-server dev/frontend --port=3000",
+    "build": "node build.js",
+    "build:prod": "node build.js --env=production",
+    "deploy:github": "npm run build && gh-pages -d dist",
+    "deploy:s3": "npm run build && aws s3 sync dist/ s3://your-bucket-name --delete",
+    "deploy:nginx": "npm run build && rsync -avz dist/ user@server:/var/www/html/",
+    "clean": "rimraf dist",
+    "serve": "serve dist -p 8080"
+  },
+  "keywords": [
+    "report",
+    "analytics",
+    "business"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "live-server": "^1.2.2",
+    "rimraf": "^5.0.0",
+    "serve": "^14.2.0",
+    "gh-pages": "^6.0.0",
+    "fs-extra": "^11.1.1",
+    "minimist": "^1.2.8"
+  },
+  "directories": {
+    "doc": "docs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kiakass/report-web.git"
+  },
+  "bugs": {
+    "url": "https://github.com/kiakass/report-web/issues"
+  },
+  "homepage": "https://github.com/kiakass/report-web#readme"
+}
